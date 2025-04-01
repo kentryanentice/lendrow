@@ -1,0 +1,71 @@
+Header set X-Content-Type-Options "nosniff"
+
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+Content-Security-Policy: default-src 'self'; img-src 'self' https://errors.infinityfree.net;
+
+Header set X-Content-Security-Policy "allow 'self';"
+
+Header always set X-Frame-Options "SAMEORIGIN"
+
+Header set X-XSS-Protection "1; mode=block"
+
+Header set Referrer-Policy "no-referrer-when-downgrade"
+
+Options -Indexes
+
+<LimitExcept GET POST>
+  Deny from all
+</LimitExcept>
+
+RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE) [NC]
+RewriteRule .* - [F,L]
+
+<FilesMatch "^\.">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+
+<Files "admin-wallet-cashout.php">
+  Allow from all
+</Files>
+
+<Files "wallet-cashout.php">
+  Allow from all
+</Files>
+
+<Files "admin-account-wallet-verify-cashout.php">
+  Allow from all
+</Files>
+
+<Files "load-admin-account-wallet-cashout-request-notification.php">
+  Allow from all
+</Files>
+
+<Files "load-admin-account-wallet-cashout-request.php">
+  Allow from all
+</Files>
+
+<Files "load-admin-account-wallet-cashout-request-card.php">
+  Allow from all
+</Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+	
+	RewriteCond %{THE_REQUEST} \s/([^\s]+)\.php [NC]
+    RewriteRule ^ /%1 [R=301,L]
+	
+	RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html [NC]
+    RewriteRule ^ /%1 [R=301,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-d
+	
+	RewriteCond %{REQUEST_FILENAME}\.php -f
+	
+	RewriteRule ^(.*)$ $1.php [NC,L] 
+	
+</IfModule>

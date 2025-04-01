@@ -1,0 +1,2298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0ef, #015f66);
+    font-weight: 400;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+    transition: all .3s ease;
+}
+
+.overlay-bg.active {
+    opacity: 1;
+    visibility: visible;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.overlay-bg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+.overlay-bg2.active {
+    opacity: 1;
+    visibility: visible;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.admin-wallet-button {
+	position: absolute;
+	top: 12.5%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(100%);
+	width: 30px;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 90px;
+	color: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	font-size: 25px;
+	font-weight: 600;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 500;
+	cursor: pointer;
+	user-select: none;
+    transition: all .3s ease;
+}
+
+.admin-wallet-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.admin-wallet-button .back {
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	width: 60px;
+	font-size: 12px;
+	font-weight: 550;
+	background: #02b4c2;
+	color: #e4e9f7;
+	padding: 8px;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	z-index: 120;
+}
+
+.admin-wallet-button:hover .back {
+	left: 35px;
+	background: #02b4c2;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.admin-wallet-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 360px;
+	height: 480px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 90;
+    transition: all .3s ease;
+}
+
+.admin-wallet-account {
+	position: absolute;
+	top: 2%;
+	left: 2.5%;
+	height: 180px;
+	width: 95%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(0, 0, 0, .50);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-wallet-account .admin-balance {
+	position: absolute;
+	top: -5px;
+	width: 95%;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 0px 10px;
+	margin: 15px 40px;
+}
+
+.admin-balance h2 {
+	position: absolute;
+	top: 10px;
+	left: 12px;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+}
+
+.admin-balance .inputBox label {
+	position: absolute;
+	top: 10%;
+	left: -0px;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+}
+
+.admin-balance .inputBox input {
+	position: relative;
+	bottom: -10px;
+	left: 20%;
+	width: 70%;
+	height: 80%;
+	border: none;
+	background: transparent;
+	padding: 5px 15px;
+	font-size: 23px;
+	font-weight: 700;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.admin-account-buttons {
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	left: 0;
+	padding: 5px 20px;
+	font-size: 12px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 2.5%;
+}
+
+.admin-account-buttons .transfer {
+	position: relative;
+	left: 0;
+	width: 35%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    border-radius: 90px;
+    cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-account-buttons .transfer:hover {
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-account-buttons .cashin {
+	position: relative;
+	left: 0;
+	width: 35%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    border-radius: 90px;
+    cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-account-buttons .cashin:hover {
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-account-buttons .cashout {
+	position: relative;
+	left: 0;
+	width: 35%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    border-radius: 90px;
+    cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-account-buttons .cashout:hover {
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-transaction-history {
+	position: absolute;
+	bottom: 2%;
+	left: 2.5%;
+	height: 260px;
+	width: 95%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(0, 0, 0, .50);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-transaction-history.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transition: all .3s ease;
+}
+
+.admin-transaction-history h2 {
+	position: absolute;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-transaction-history h2 .admin-history-button {
+	position: relative;
+	right: -40px;
+	width: 80px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    color: #fff;
+    font-size: 9px;
+	font-size: 500;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-transaction-history h2 .admin-history-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-history-button .notification-dot {
+	position: absolute;
+	top: -.5px;
+	right: -.5px;
+	width: 10px;
+	height: 10px;
+	background: #fc5353;
+    border-radius: 90px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2),
+		inset 1px 1px 1px rgba(255,255,255,0.5),
+		inset -1px -1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.admin-request-history {
+	position: absolute;
+	bottom: 2%;
+	left: 2.5%;
+	height: 260px;
+	width: 95%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(0, 0, 0, .50);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-request-history.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transition: all .3s ease;
+}
+
+.admin-request-history h2 {
+	position: absolute;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-request-history h2 .admin-history-button {
+	position: relative;
+	right: -40px;
+	width: 80px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    color: #fff;
+    font-size: 9px;
+	font-size: 500;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-request-history h2 .admin-history-button:hover {
+	color: #0ef;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-history-button .notification-dot {
+	position: absolute;
+	top: -.5px;
+	right: -.5px;
+	width: 10px;
+	height: 10px;
+	background: #fc5353;
+    border-radius: 90px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2),
+		inset 1px 1px 1px rgba(255,255,255,0.5),
+		inset -1px -1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.admin-history-content {
+	position: relative;
+	top: 25px;
+	bottom: 5%;
+	height: 180px;
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	user-select: none;
+}
+
+.admin-history-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.admin-history-content::-webkit-scrollbar-track {
+    background: #f5f5f5;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.admin-history-content::-webkit-scrollbar-thumb {
+    background: #888;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.admin-history-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.empty {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	width: 300px;
+	transform: translate(-50%, -50%) scale(90%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.7);
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.empty .animated-dots {
+	position: relative;
+}
+
+.dots::after {
+	content: "";
+	position: absolute;
+	top: -10px;
+	right: -25px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	animation: dots 1.5s steps(4, end) infinite;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+@keyframes dots {
+	0% {
+		content: "";
+		opacity: 0.5;
+		font-size: 25px;
+	}
+	25% {
+		content: ".";
+		opacity: 1;
+		font-size: 25px;
+	}
+	50% {
+		content: "..";
+		opacity: 1;
+		font-size: 25px;
+	}
+	75% {
+		content: "...";
+		opacity: 1;
+		font-size: 25px;
+	}
+	100% {
+		content: "";
+		opacity: 0.5;
+		font-size: 25px;
+	}
+}
+
+.admin-history-content .admin-history {
+	position: relative;
+	left: 2.5%;
+	width: 95%;
+	height: 40px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.75);
+	padding: 20px 10px;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.admin-history .view-button {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 40px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.view-button .view {
+	position: absolute;
+	width: 40px;
+	height: 20px;
+	background: linear-gradient(to right, #4dc1fa, #02adba);
+    color: #fff;
+    font-size: 10px;
+	font-weight: 500;
+    border-radius: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.view-button .view:hover {
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-history .pending {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #ffad33;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-alarm-exclamation {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #ffad33, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .approved {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #0ef;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #0ef, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .rejected {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-x-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .added {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #5ef75e;
+	border-radius: 5px;
+}
+
+.admin-history .added-cashin i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #5ef75e,  #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .deducted {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-minus-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fa8282, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-send-money-form {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.admin-send-money-form.active {
+	top: 50%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.admin-send-money-form h2 {
+	position: absolute;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-cashin-form {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.admin-cashin-form.active {
+	top: 50%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.cashin-confirm-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%) scale(100%);
+    width: 101%;
+    height: 101%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1200;
+    opacity: 0;
+	border-radius: 5px;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+    transition: all .3s ease;
+}
+
+.cashin-confirm-overlay.active {
+    opacity: 1;
+    visibility: visible;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2.5px);
+}
+
+.admin-cashin-form h2 {
+	position: absolute;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-cashin-input {
+	position: relative;
+	width: 350px;
+	height: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	transition: all .3s ease;
+	user-select: none;
+	pointer-events: auto;
+}
+
+.admin-cashin-input .slide-container {
+	position: absolute;
+	top: 0;
+	left: 70px;
+	width: 280px;
+}
+
+.admin-cashin-input .slide-content {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+	padding: 10px 10px;
+	margin: 15px 20px;
+	overflow: hidden;
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-cashin-input-file {
+	position: relative;
+	width: 350px;
+	height: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input i {
+	position: absolute;
+	left: 10%;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashin-input-file i {
+	position: absolute;
+	left: 10%;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashin-input .admin-cashin-label {
+	position: absolute;
+	top: -5px;
+	left: 20px;
+	width: 100%;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-cashin-input-file .admin-cashin-label {
+	position: absolute;
+	top: 10px;
+	left: 22.5px;
+	width: 100%;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-cashin-input-file input {
+	position: relative;
+	left: 8%;
+	width: 60%;
+	height: 30px;
+	border: none;
+	background: transparent;
+	padding: 6px 15px;
+	font-size: 10px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashin-input-file input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.admin-cashin-input .custom-radio input[type="radio"],
+.admin-cashin-input .amount-custom-radio input[type="radio"] {
+    display: none;
+}
+
+.admin-cashin-input .custom-radio {
+	position: relative;
+	left: 20px;
+	display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+	border-radius: 5px;
+	margin: 10px;
+	transform: scale(.9);
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .amount-custom-radio {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+	border-radius: 5px;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio span,
+.admin-cashin-input .amount-custom-radio span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio .admin-cashin-amount,
+.admin-cashin-input .amount-custom-radio .admin-cashin-amount {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .7);
+	overflow: hidden;
+	background: linear-gradient(to right, rgba(0, 239, 255, 0.3), rgba(2, 180, 194, 0.4));
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+	opacity: 0.6;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio span:hover img {
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio input[type="radio"]:checked + span,
+.admin-cashin-input .amount-custom-radio input[type="radio"]:checked + span {
+	border: 1px solid #02b4c2;
+	transform: scale(90%);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio input[type="radio"]:hover + .admin-cashin-amount,
+.admin-cashin-input .amount-custom-radio input[type="radio"]:hover + .admin-cashin-amount {
+	transform: scale(1.1);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 0.7;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio input[type="radio"]:checked + .admin-cashin-amount,
+.admin-cashin-input .amount-custom-radio input[type="radio"]:checked + .admin-cashin-amount {
+	border: 1px solid #02b4c2;
+	transform: scale(1.2);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .custom-radio input[type="radio"]:checked + span img {
+	transform: scale(90%);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .swiper-navBtn {
+	font-size: 10px;
+	font-weight: 800;
+	transform: scale(.5);
+}
+
+.admin-cashin-input .swiper-navBtn:hover {
+	transform: scale(.4);
+	transition: all .3s ease;
+}
+
+.payment-method-error {
+	position: absolute;
+	width: 100%;
+	left: 14%;
+	bottom: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.payment-method-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.payment-method-error i { 
+	position: absolute;
+	top: -7.5px;
+	left: -15px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.payment-method-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.payment-method-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.payment-amount-error {
+	position: absolute;
+	width: 100%;
+	left: 14%;
+	bottom: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.payment-amount-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.payment-amount-error i { 
+	position: absolute;
+	top: -7.5px;
+	left: -15px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.payment-amount-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.payment-amount-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.receipt-error {
+	position: absolute;
+	width: 100%;
+	left: 14%;
+	bottom: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.receipt-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.receipt-error i { 
+	position: absolute;
+	top: -7.5px;
+	left: -15px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.receipt-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.receipt-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashin-empty-error {
+	position: absolute;
+	width: 100%;
+	left: 9%;
+	bottom: 16%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.cashin-empty-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.cashin-empty-error i { 
+	position: absolute;
+	top: -2.5px;
+	left: -10px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.cashin-empty-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashin-empty-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-cashin-buttons {
+	position: absolute;
+	left: 0;
+	bottom: 4%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30%;
+	transition: all .3s ease;
+}
+
+.admin-cashin-buttons .close {
+	padding: 6px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashin-buttons .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashin-buttons .create {
+	padding: 6px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashin-buttons .create:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashout-form {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.admin-cashout-form.active {
+	top: 50%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.admin-cashout-form h2 {
+	position: absolute;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-cashout-input {
+	position: relative;
+	top: 0px;
+	width: 350px;
+	height: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+	margin-top: 10px;
+	user-select: none;
+	pointer-events: auto;
+}
+
+.admin-cashout-input .slide-container {
+	position: absolute;
+	top: 0;
+	left: 70px;
+	width: 280px;
+}
+
+.admin-cashout-input .slide-content {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+	padding: 10px 10px;
+	margin: 15px 20px;
+	overflow: hidden;
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-cashout-input i {
+	position: absolute;
+	left: 10%;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashout-input-file i {
+	position: absolute;
+	left: 10%;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashout-input .admin-cashout-label {
+	position: absolute;
+	top: -5px;
+	left: 20px;
+	width: 100%;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-cashout-input-file .admin-cashout-label {
+	position: absolute;
+	top: 10px;
+	left: 22.5px;
+	width: 100%;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-cashout-input-file input {
+	position: relative;
+	left: 8%;
+	width: 60%;
+	height: 30px;
+	border: none;
+	background: transparent;
+	padding: 6px 15px;
+	font-size: 10px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashout-input-file input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.admin-cashout-input .custom-radio input[type="radio"],
+.admin-cashout-input .amount-custom-radio input[type="radio"] {
+    display: none;
+}
+
+.admin-cashout-input .custom-radio {
+	position: relative;
+	left: 20px;
+	display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+	border-radius: 5px;
+	margin: 10px;
+	transform: scale(.9);
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .amount-custom-radio {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+	border-radius: 5px;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio span,
+.admin-cashout-input .amount-custom-radio span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio .admin-cashout-amount,
+.admin-cashout-input .amount-custom-radio .admin-cashout-amount {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .7);
+	overflow: hidden;
+	background: linear-gradient(to right, rgba(0, 239, 255, 0.3), rgba(2, 180, 194, 0.4));
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashout-input .admin-cashout-fee {
+	position: relative;
+	left: 25px;
+	margin-right: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .7);
+	overflow: hidden;
+	background: linear-gradient(to right, rgba(0, 239, 255, 0.3), rgba(2, 180, 194, 0.4));
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashout-input .admin-cashout-total {
+	position: relative;
+	left: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	font-size: 12px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .7);
+	overflow: hidden;
+	background: linear-gradient(to right, rgba(0, 239, 255, 0.3), rgba(2, 180, 194, 0.4));
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+	opacity: 0.6;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio span:hover img {
+	transform: scale(95%);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio input[type="radio"]:checked + span img {
+	transform: scale(90%);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio input[type="radio"]:checked + span,
+.admin-cashout-input .amount-custom-radio input[type="radio"]:checked + span {
+	border: 1px solid #02b4c2;
+	transform: scale(90%);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio input[type="radio"]:hover + .admin-cashout-amount,
+.admin-cashout-input .amount-custom-radio input[type="radio"]:hover + .admin-cashout-amount {
+	transform: scale(1.1);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 0.7;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .custom-radio input[type="radio"]:checked + .admin-cashout-amount,
+.admin-cashout-input .amount-custom-radio input[type="radio"]:checked + .admin-cashout-amount {
+	transform: scale(1.2);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .admin-cashout-fee .custom-radio input[type="radio"]:checked {
+	border: 1px solid #02b4c2;
+	transform: scale(1.2);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .admin-cashout-total .custom-radio input[type="radio"]:checked {
+	border: 1px solid #02b4c2;
+	transform: scale(1.2);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashout-input .swiper-navBtn {
+	font-size: 10px;
+	font-weight: 800;
+	transform: scale(.5);
+}
+
+.admin-cashout-input .swiper-navBtn:hover {
+	transform: scale(.4);
+	transition: all .3s ease;
+}
+
+.cashout-method-error {
+	position: absolute;
+	width: 100%;
+	left: 14%;
+	bottom: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.cashout-method-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.cashout-method-error i { 
+	position: absolute;
+	top: -7.5px;
+	left: -15px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.cashout-method-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-method-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-amount-error {
+	position: absolute;
+	width: 100%;
+	left: 14%;
+	bottom: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.cashout-amount-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.cashout-amount-error i { 
+	position: absolute;
+	top: -7.5px;
+	left: -15px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.cashout-amount-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-amount-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-empty-error {
+	position: absolute;
+	width: 100%;
+	left: 9%;
+	bottom: 16%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.cashout-empty-error p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.cashout-empty-error i { 
+	position: absolute;
+	top: -2.5px;
+	left: -10px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.cashout-empty-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-empty-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-cashout-buttons {
+	position: absolute;
+	left: 0;
+	bottom: 4%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30%;
+	transition: all .3s ease;
+}
+
+.admin-cashout-buttons .close {
+	padding: 6px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashout-buttons .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashout-buttons .create {
+	padding: 6px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-cashout-buttons .create:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.request-card {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.request-card.active {
+	top: 50%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.request-card h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.card-input {
+	position: absolute;
+	top: -5%;
+	left: 5%;
+	width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.card-input .info1 {
+	position: absolute;
+	top: 22%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 30px;
+	width: 100%;
+}
+
+.card-input .info1 label {
+	position: absolute;
+	left: 0;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-input .info {
+	position: relative;
+	top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 100%;
+    margin: 10px 0;
+}
+
+.card-input .info label {
+	position: absolute;
+	left: 0;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-input .info input {
+	position: relative;
+	left: 30%;
+	width: 80%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 10px;
+	font-size: 10px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	box-sizing: border-box;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.card-input .receipt {
+	position: absolute;
+	bottom: 40px;
+	right: 40%;
+	height: 50px;
+	width: 50px;
+	font-size: 9px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	background: none;
+	background-size: cover;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.card-input .receipt img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.overlaycardbg {
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+    width: 101%;
+    height: 101%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1500;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+	border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.overlaycardbg.active {
+    opacity: 1;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(1px);
+}
+
+.card-receipt {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(95%);
+	width: 350px;
+    height: 490px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #edebeb;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	background-size: cover;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 2000;
+	transition: all .3s ease;
+}
+
+.card-receipt.active {
+	transform: translate(-50%, -50%) scale(100%);
+	visibility: visible;
+	opacity: 1;
+	transition: all .3s ease;
+}
+
+.card-receipt .card-receipt-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.card-receipt-title i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+	color: #fc92a8;
+	cursor: pointer;
+    transform: rotate(180deg) scale(100%);
+	transition: all .5s ease;
+}
+
+.card-receipt-title i:hover {
+	color: #f26683;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+	transform: rotate(180deg) scale(90%);
+}
+
+.card-receipt img {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 4px solid #02b4c2;
+    max-width: 90%;
+    max-height: 80%;
+	transform: scale(90%);
+}
+
+.request-card-button  {
+	position: absolute;
+	left: 5%;
+	bottom: 3%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10%;
+	transition: all .3s ease;
+}
+
+.request-card-button .close {
+	padding: 6px 25px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.request-card-button .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-wallet-error {
+	position: fixed;
+	left: 0;
+	bottom: 30px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	z-index: 3000;
+}
+
+.admin-wallet-error p {
+    position: relative;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.admin-wallet-error i {
+    position: relative;
+    font-size: 20px;
+}
+
+.admin-wallet-error .bxs-check-circle { 
+	font-size: 22px;
+	background: linear-gradient(to right, #219aa3, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.admin-wallet-error .blue {
+	background: linear-gradient(to right, #4dc1fa, #02adba);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.admin-wallet-error .bxs-error-circle { 
+	font-size: 22px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.admin-wallet-error .red {
+	background: linear-gradient(to right, #fc5353, #bf3f3f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+	.admin-wallet-button {
+		top: 18%;
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-wallet-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-send-money-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-cashin-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-cashout-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.request-card {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-wallet-error {
+		left: -2%;
+		transform: scale(80%);
+	}
+	
+	.admin-wallet-error p {
+		font-size: 10px;
+	}
+	
+}

@@ -1,0 +1,1021 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0ef, #015f66);
+    font-weight: 400;
+    min-height: 100dvh;
+    display: grid;
+    place-content: center;
+	overflow: hidden;
+}
+
+.overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 500;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+    transition: all .3s ease;
+}
+
+.overlay-bg.active {
+    opacity: 1;
+	pointer-events: auto;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+	
+.profile-container {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.signout {
+	position: absolute;
+	top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+	height: 20px;
+	width: 70px;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	font-size: 12px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25),
+		inset 1px 1px 3px rgba(255, 255, 255, 0.25),
+		inset -1px -1px 3px rgba(0, 0, 0, 0.5);
+	transition: all .3s ease;
+}
+
+.signout:hover {
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.signout-form {
+	position: absolute;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+	width: 320px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 999;
+	opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.signout-form.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.signout-form h2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.signout-form  p {
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	width: 80%;
+    transform: translate(-50%, -50%) scale(110%);
+	font-size: 13px;
+	font-weight: 700;
+	text-align: center;
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.signout-form .buttons {
+	bottom: 10%;
+}
+
+.buttons {
+	position: absolute;
+	left: 0;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20%;
+	transition: all .3s ease;
+}
+
+.buttons .cancel {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.buttons .cancel:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.buttons .confirm {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.buttons .confirm:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-prof-picture {
+	position: absolute;
+	top: 28%;
+    left: 20%;
+    transform: translate(-50%, -50%) scale(100%);
+	height: 150px;
+	width: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	color: rgba(255, 255, 255, .95);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-prof-picture .admin-profile {
+	position: absolute;
+	height: 140px;
+	width: 140px;
+	font-size: 8.5px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	border: 2px solid #fff;	
+	background: none;
+	background: url('<?php echo $profilePicturePath; ?>') center center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.admin-prof-picture .admin-profile img {
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.admin-edit-pic {
+	position: absolute;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	bottom: -25%;
+	left: 25%;
+	width: 50%;
+	height: 25px;
+	font-size: 12px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 90px;
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25),
+		inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+		inset -2px -2px 3px rgba(0, 0, 0, 0.5);
+	transition: all .3s ease;
+}
+
+.admin-edit-pic:hover {
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25),
+		inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+		inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+	transition: all .3s ease;
+}
+
+.admin-info .admin-profile-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 400px;
+	background-color: #f5f5f5;
+    border-radius: 5px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-info .admin-profile-info h2 {
+	position: absolute;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-profile-info .primary-ids {
+	position: relative;
+	top: 0;
+	left: 10%;
+	width: 80%;
+	gap: 40px;
+}
+
+.admin-profile-info .primary-id {
+	position: absolute;
+	top: -30px;
+	left: 20%;
+	height: 50px;
+	width: 50px;
+	font-size: 8.5px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 2px solid #fff;
+	background: none;
+	background-size: cover;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.admin-profile-info .primary-id2 {
+	position: absolute;
+	top: -30px;
+	right: 20%;
+	height: 50px;
+	width: 50px;
+	font-size: 8.5px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 2px solid #fff;
+	background: none;
+	background-size: cover;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.admin-profile-info .primary-ids img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.primary-ids .id-text {
+	position: absolute;
+	top: -50px;
+	left: 21.5%;
+	font-size: 8.5px;
+    font-weight: 700;
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.primary-ids .id-text2 {
+	position: absolute;
+	top: -50px;
+	right: 20%;
+	font-size: 8.5px;
+    font-weight: 700;
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.id {
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(100%);
+	width: 320px;
+	height: 450px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: #edebeb;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	background-size: cover;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 600;
+	transition: all .3s ease;
+}
+
+.id.active {
+	top: 50%;
+	visibility: visible;
+	opacity: 1;
+}
+
+.id .title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 5px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.title i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+	color: #fc92a8;
+	cursor: pointer;
+    transform: rotate(180deg) scale(100%);
+	transition: all .5s ease;
+}
+
+.title i:hover {
+	color: #f26683;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+	transform: rotate(180deg) scale(90%);
+}
+
+.id img {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 4px solid #02b4c2;
+    max-width: 90%;
+    max-height: 90%;
+	transform: scale(90%);
+}
+
+.admin-info .admin-profile-info .inputBox {
+    position: relative;
+	top: 55px;
+	left: 5%;
+    width: 320px;
+	height: 30px;
+    margin: 15px 0;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-info .admin-profile-info .inputBox input {
+	position: relative;
+	height: 100%;
+	width: 75%;
+	border: none;
+	background: transparent;
+	padding: 0 20px;
+	font-size: 13px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -2px -2px 4px rgba(255,255,255,1),
+	inset 2px 2px 4px rgba(0,0,0,0.10),
+	inset -2px -2px 4px rgba(255,255,255,1),
+	2px 2px 4px rgba(0,0,0,0.10);
+}
+
+.admin-info .admin-profile-info .inputBox input::placeholder {
+	color: #ccc;
+}
+
+.admin-info .admin-profile-info .inputBox i {
+	position: absolute;
+	left: 0px;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-info .admin-profile-info .update {
+	position: absolute;
+	bottom: 3%;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	left: 30%;
+    width: 40%;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25),
+		inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+		inset -2px -2px 3px rgba(0, 0, 0, 0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-info .admin-profile-info .update:hover {
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25),
+		inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+		inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+	transition: all .3s ease;
+}
+
+.error {
+	position: absolute;
+	left: 0;
+	bottom: 15%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.error p {
+    position: relative;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.error i {
+    position: relative;
+    font-size: 20px;
+}
+
+.error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.users-error {
+	position: absolute;
+	left: 0;
+	top: 40%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.users-error p {
+    position: relative;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.users-error i {
+    position: relative;
+    font-size: 20px;
+}
+
+.users-error .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.users-error .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.users-error .bxs-check-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.users-error .blue {
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.submission-errors {
+	position: absolute;
+	left: 0;
+	bottom: 12.5%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.submission-errors p {
+    position: relative;
+    font-size: 8.5px;
+    font-weight: 700;
+}
+
+.submission-errors i {
+    position: relative;
+    font-size: 20px;
+}
+
+.submission-errors .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.submission-errors .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.submission-errors .bxs-check-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #02adba, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.submission-errors .blue {
+	background: linear-gradient(to right, #02adba, #015f66);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-picture-form {
+	position: fixed;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 400px;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 10px 10px;
+	margin: 0;
+	z-index: 1000;
+	opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.admin-picture-form.active {
+	top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.admin-picture-form h2 {
+	position: absolute;
+	top: 0;
+	height: 80px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-picture-form .admin-picture-form-info .inputBox {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 30px;
+    margin: 50px 0;
+}
+
+.admin-picture-form .admin-picture-form-info .inputBox label {
+	position: absolute;
+	top: -50%;
+	left: 20%;
+	width: 80%;
+	height: 100%;
+	font-size: 8px;
+	color: rgba(0, 0, 0, .60);
+}
+
+.admin-picture-form .admin-picture-form-info .inputBox input {
+	position: relative;
+	left: 15%;
+	width: 90%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 6px 15px;
+	font-size: 10px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-picture-form .admin-picture-form-info .inputBox input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.admin-picture-form .admin-picture-form-info .inputBox i {
+	position: absolute;
+	left: -5%;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-picture-form .admin-picture-form-info .error-message {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 150%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.admin-picture-form .admin-picture-form-info .error-message p {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.admin-picture-form .admin-picture-form-info .error-message i { 
+	position: absolute;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.admin-picture-form .admin-picture-form-info .error-message .bxs-error-circle { 
+	font-size: 16px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-picture-form .admin-picture-form-info .error-message .bxs-error-circle { 
+	font-size: 17px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-picture-form .admin-picture-form-info .error-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-picture-form .admin-picture-form-info .error .empty-error-message {
+	position: absolute;
+	left: 40px;
+	bottom: 30px;
+	width: 150%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.admin-picture-form .admin-picture-form-info .error .empty-error-message p {
+	position: absolute;
+	left: 20px;
+    font-size: 8.5px;
+    font-weight: 700;
+}
+
+.admin-picture-form .admin-picture-form-info .error .empty-error-message i {
+	position: absolute;
+	top: -2.5px;
+    font-size: 20px;
+}
+
+.admin-picture-form .admin-picture-form-info .error .empty-error-message .bxs-error-circle { 
+	font-size: 17px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-picture-form .admin-picture-form-info .error .empty-error-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-picture-buttons {
+	position: absolute;
+	left: 0;
+	bottom: 5%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20%;
+	transition: all .3s ease;
+}
+
+.admin-picture-buttons .close {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-picture-buttons .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-picture-buttons .upload {
+	width: 30%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-picture-buttons .upload:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+@media screen and (max-width: 768px) {
+	.signout {
+		left: 70%;
+		transform: translate(-50%, -50%) scale(70%);
+	}
+	
+	.signout-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-prof-picture {
+		top: 22.5%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-info .admin-profile-info{
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-picture-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.id {
+		transform: translate(-50%, -50%) scale(85%);
+	}
+
+}

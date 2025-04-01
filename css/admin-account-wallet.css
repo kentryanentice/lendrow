@@ -1,0 +1,3084 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0ef, #015f66);
+    font-weight: 400;
+    min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+    transition: all .3s ease;
+}
+
+.overlay-bg.active {
+    opacity: 1;
+    visibility: visible;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.admin-account-wallet-buttons {
+	position: absolute;
+	top: 12.5%;
+	left: 10%;
+	width: 80%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	gap: 20px;
+	transition: all .3s ease;
+	z-index: 91;
+}
+
+.admin-account-wallet-buttons .virtual-money-manager-button {
+	width: 110px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .virtual-money-manager-button.active {
+	transform: scale(110%);
+}
+
+.admin-account-wallet-buttons .virtual-money-manager-button:hover {
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .virtual-money-manager-button .notification-dot {
+	position: absolute;
+	top: -.5px;
+	right: -.5px;
+	width: 10px;
+	height: 10px;
+	background: #fc5353;
+    border-radius: 90px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2),
+		inset 1px 1px 1px rgba(255,255,255,0.5),
+		inset -1px -1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .cashin-manager-button {
+	width: 110px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .cashin-manager-button.active {
+	transform: scale(110%);
+}
+
+.admin-account-wallet-buttons .cashin-manager-button:hover {
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .cashin-manager-button .notification-dot {
+	position: absolute;
+	top: -.5px;
+	right: -.5px;
+	width: 10px;
+	height: 10px;
+	background: #fc5353;
+    border-radius: 90px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2),
+		inset 1px 1px 1px rgba(255,255,255,0.5),
+		inset -1px -1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .cashout-manager-button {
+	width: 110px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .cashout-manager-button.active {
+	transform: scale(110%);
+}
+
+.admin-account-wallet-buttons .cashout-manager-button:hover {
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-buttons .cashout-manager-button .notification-dot {
+	position: absolute;
+	top: -.5px;
+	right: -.5px;
+	width: 10px;
+	height: 10px;
+	background: #fc5353;
+    border-radius: 90px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2),
+		inset 1px 1px 1px rgba(255,255,255,0.5),
+		inset -1px -1px 1px rgba(0,0,0,0.2);
+	transition: all .3s ease;
+}
+
+.admin-account-wallet-content {
+	position: absolute;
+	top: 12.5%;
+	left: 10%;
+	width: 80%;
+	height: 85%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.admin-virtual-money-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 360px;
+	height: 480px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 90;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+    transition: all .3s ease;
+}
+
+.admin-virtual-money-form.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transition: all .3s ease;
+}
+
+.admin-virtual-wallet-account {
+	position: absolute;
+	top: 2%;
+	left: 2.5%;
+	height: 180px;
+	width: 95%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(0, 0, 0, .50);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-virtual-wallet-account .admin-virtual-balance {
+	position: absolute;
+	top: -5px;
+	width: 95%;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 0px 10px;
+	margin: 15px 40px;
+	user-select: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.admin-virtual-wallet-account .admin-virtual-balance.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+.admin-virtual-balance h2 {
+	position: absolute;
+	top: 10px;
+	left: 12px;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+.admin-virtual-balance .virtual-icon {
+	position: absolute;
+	top: -10px;
+	right: 5px;
+	font-size: 35px;
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	transition: all .3s ease;
+}
+
+.admin-virtual-balance .virtual-icon:hover {
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.admin-virtual-balance .inputBox label {
+	position: absolute;
+	top: 10%;
+	left: -0px;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+}
+
+.admin-virtual-balance .inputBox input {
+	position: relative;
+	bottom: -10px;
+	left: 20%;
+	width: 70%;
+	height: 80%;
+	border: none;
+	background: transparent;
+	padding: 5px 15px;
+	font-size: 23px;
+	font-weight: 700;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.admin-virtual-wallet-account .admin-system-balance {
+	position: absolute;
+	top: -5px;
+	width: 95%;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	padding: 0px 10px;
+	margin: 15px 40px;
+	user-select: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+}
+
+.admin-virtual-wallet-account .admin-system-balance.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.admin-system-balance h2 {
+	position: absolute;
+	top: 10px;
+	left: 12px;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+}
+
+.admin-system-balance .virtual-icon {
+	position: absolute;
+	top: -10px;
+	right: 5px;
+	font-size: 35px;
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
+	transition: all .3s ease;
+}
+
+.admin-system-balance .virtual-icon:hover {
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.admin-system-balance .inputBox label {
+	position: absolute;
+	top: 10%;
+	left: -0px;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+}
+
+.admin-system-balance .inputBox input {
+	position: relative;
+	bottom: -10px;
+	left: 20%;
+	width: 70%;
+	height: 80%;
+	border: none;
+	background: transparent;
+	padding: 5px 15px;
+	font-size: 23px;
+	font-weight: 700;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.admin-virtual-account-buttons {
+	position: absolute;
+	bottom: 15%;
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.admin-virtual-account-buttons .virtual-cashin {
+	position: absolute;
+	width: 130px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);=
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-virtual-account-buttons .virtual-cashin:hover {
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-virtual-transaction-history {
+	position: absolute;
+	bottom: 2%;
+	left: 2.5%;
+	height: 260px;
+	width: 95%;
+	font-size: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(0, 0, 0, .50);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-virtual-transaction-history h2 {
+	position: absolute;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 15px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-virtual-transaction-history-content {
+	position: relative;
+	top: 25px;
+	bottom: 5%;
+	height: 180px;
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.empty {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	width: 300px;
+	transform: translate(-50%, -50%) scale(80%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.7);
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.empty .animated-dots {
+	position: relative;
+}
+
+.dots::after {
+	content: "";
+	position: absolute;
+	top: -10px;
+	right: -25px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	animation: dots 1.5s steps(4, end) infinite;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+@keyframes dots {
+	0% {
+		content: "";
+		opacity: 0.5;
+		font-size: 25px;
+	}
+	25% {
+		content: ".";
+		opacity: 1;
+		font-size: 25px;
+	}
+	50% {
+		content: "..";
+		opacity: 1;
+		font-size: 25px;
+	}
+	75% {
+		content: "...";
+		opacity: 1;
+		font-size: 25px;
+	}
+	100% {
+		content: "";
+		opacity: 0.5;
+		font-size: 25px;
+	}
+}
+
+.admin-virtual-transaction-history-content .admin-virtual-history {
+	position: relative;
+	top: 0;
+	left: 2.5%;
+	width: 95%;
+	height: 40px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.75);
+	padding: 20px 10px;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.admin-virtual-transaction-history .pending {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #ffad33;
+	border-radius: 5px;
+}
+
+.admin-virtual-transaction-history i.bxs-alarm-exclamation {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #ffad33, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-transaction-history .approved {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #0ef;
+	border-radius: 5px;
+}
+
+.admin-virtual-transaction-history i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #0ef, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-transaction-history .rejected {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-virtual-transaction-history i.bxs-x-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-transaction-history .added {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #5ef75e;
+	border-radius: 5px;
+}
+
+.admin-virtual-transaction-history .added-virtual-cashin i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #5ef75e,  #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-transaction-history .deducted {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-virtual-transaction-history .deducted-cashin i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #ffad33, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-cashin-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 360px;
+	height: 480px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 90;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+    transition: all .3s ease;
+}
+
+.admin-virtual-cashin-form.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transition: all .3s ease;
+}
+
+.admin-virtual-cashin-form .admin-virtual-cashin-content {
+	position: absolute;
+	height: 95%;
+	width: 95%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-virtual-cashin-content h2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	color: rgba(255, 255, 255, .90);
+	width: 100%;
+	display: flex;
+	font-size: 15px;
+	font-weight: 700;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-virtual-cashin-content .admin-virtual-history-content {
+	position: absolute;
+	top: 15%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	user-select: none;
+	text-shadow: none;
+}
+
+.admin-virtual-cashout-content .admin-virtual-history-content {
+	position: absolute;
+	top: 15%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	user-select: none;
+	text-shadow: none;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar-track {
+    background: #f5f5f5;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar-thumb {
+    background: #888;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.admin-virtual-history-content .admin-history {
+	position: relative;
+	top: 0;
+	left: 2.5%;
+	width: 95%;
+	height: 40px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.75);
+	padding: 20px 10px;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.admin-history .view-button {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 40px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.view-button .view {
+	position: absolute;
+	width: 40px;
+	height: 20px;
+	background: linear-gradient(to right, #4dc1fa, #02adba);
+    color: #fff;
+    font-size: 10px;
+	font-weight: 500;
+    border-radius: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.view-button .view:hover {
+	transform: scale(95%);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-history .pending {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #ffad33;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-alarm-exclamation {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #ffad33, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .approved {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #0ef;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #0ef, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .rejected {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-x-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .deducted-cashout i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .added {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #5ef75e;
+	border-radius: 5px;
+}
+
+.admin-history .added-cashin i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #5ef75e,  #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-history .deducted {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-history i.bxs-minus-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fa8282, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-cashout-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 360px;
+	height: 480px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 90;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+    transition: all .3s ease;
+}
+
+.admin-virtual-cashout-form.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transition: all .3s ease;
+}
+
+.admin-virtual-cashout-form .admin-virtual-cashout-content {
+	position: absolute;
+	height: 95%;
+	width: 95%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.admin-virtual-cashout-content h2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	color: rgba(255, 255, 255, .90);
+	width: 100%;
+	display: flex;
+	font-size: 15px;
+	font-weight: 700;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	background: linear-gradient(to right, #fa5c5c, #b35f5f);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-virtual-history-content {
+	position: relative;
+	top: 25px;
+	bottom: 5%;
+	height: 380px;
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	user-select: none;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar-track {
+    background: #f5f5f5;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar-thumb {
+    background: #888;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25),
+	inset 1px 1px 1px rgba(255,255,255,0.25),
+	inset -1px -1px 1px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.admin-virtual-history-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.admin-virtual-history-content .admin-virtual-history {
+	position: relative;
+	top: 0;
+	left: 2.5%;
+	width: 95%;
+	height: 40px;
+	display: flex;
+	font-size: 8px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.75);
+	padding: 20px 10px;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	border-radius: 5px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.admin-transaction-history .pending {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #ffad33;
+	border-radius: 5px;
+}
+
+.admin-transaction-history i.bxs-alarm-exclamation {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #ffad33, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-transaction-history .approved {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #0ef;
+	border-radius: 5px;
+}
+
+.admin-transaction-history i.bxs-check-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #0ef, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-transaction-history .rejected {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-transaction-history i.bxs-x-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-transaction-history .added {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #5ef75e;
+	border-radius: 5px;
+}
+
+.admin-transaction-history i.bxs-plus-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #5ef75e,  #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-transaction-history .deducted {
+	position: absolute;
+	top: 10%;
+	left: 1%;
+	width: 98%;
+	height: 80%;
+	border: 1.5px solid #fa8282;
+	border-radius: 5px;
+}
+
+.admin-transaction-history i.bxs-minus-circle {
+	font-size: 20px;
+	margin: 5px;
+	margin-left: -5px;
+	background: linear-gradient(to right, #fa8282, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-virtual-history .view-button {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 40px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.view-button .view {
+	position: absolute;
+	width: 40px;
+	height: 20px;
+	background: linear-gradient(to right, #4dc1fa, #02adba);
+    color: #fff;
+    font-size: 10px;
+	font-weight: 500;
+    border-radius: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.view-button .view:hover {
+	transform: scale(95%);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+		inset 1px 1px 2px rgba(255,255,255,0.25),
+		inset -1px -1px 2px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.virtual-setup-form {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.virtual-setup-form.active {
+	top: 55%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.virtual-setup-form h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-virtual-setup-input {
+	position: relative;
+	width: 350px;
+	height: 120px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	transition: all .3s ease;
+}
+
+.admin-virtual-setup-input i {
+	position: absolute;
+	left: 10%;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-virtual-setup-input .admin-virtual-setup-label {
+	position: absolute;
+	top: -5px;
+	left: 10%;
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-virtual-setup-input input {
+	position: relative;
+	left: 8%;
+	width: 60%;
+	height: 30px;
+	border: none;
+	background: transparent;
+	padding: 6px 15px;
+	font-size: 11px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-virtual-setup-input input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.virtual-cashin-form {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.virtual-cashin-form.active {
+	top: 55%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.virtual-cashin-form h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.admin-virtual-cashin-input {
+	position: relative;
+	width: 350px;
+	height: 120px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	transition: all .3s ease;
+}
+
+.admin-virtual-cashin-input i {
+	position: absolute;
+	left: 30px;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-virtual-cashin-input .admin-virtual-cashin-label {
+	position: absolute;
+	top: -5px;
+	left: 10%;
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-virtual-cashin-input input {
+	position: relative;
+	left: 8%;
+	width: 60%;
+	height: 30px;
+	border: none;
+	background: transparent;
+	padding: 6px 15px;
+	font-size: 11px;
+	color: rgba(0, 0, 0, .50);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.admin-virtual-cashin-input input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.admin-cashin-input {
+	position: relative;
+	width: 110%;
+	height: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+	user-select: none;
+	pointer-events: auto;
+}
+
+.admin-cashin-input .slide-container {
+	position: absolute;
+	top: 0;
+	left: 70px;
+	width: 280px;
+}
+
+.admin-cashin-input .slide-content {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+	padding: 10px 10px;
+	margin: 15px 20px;
+	overflow: hidden;
+	transform: scale(90%);
+	transition: all .3s ease;
+}
+
+.admin-cashin-input i {
+	position: absolute;
+	left: 40px;
+	width: 30px;
+	height: 30px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.admin-cashin-input .admin-cashin-label {
+	position: absolute;
+	top: -15px;
+	left: 40px;
+	width: 100%;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .60);
+	margin-right: 20px;
+}
+
+.admin-cashin-input .amount-custom-radio input[type="radio"] {
+    display: none;
+}
+
+.admin-cashin-input .amount-custom-radio {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+	border-radius: 5px;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .amount-custom-radio span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashin-input .amount-custom-radio .admin-cashin-amount {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, .7);
+	overflow: hidden;
+	background: linear-gradient(to right, rgba(0, 239, 255, 0.3), rgba(2, 180, 194, 0.4));
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.admin-cashin-input .amount-custom-radio input[type="radio"]:checked + span {
+	border: 1px solid #02b4c2;
+	transform: scale(90%);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .amount-custom-radio input[type="radio"]:hover + .admin-cashin-amount {
+	transform: scale(1.1);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 0.7;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .amount-custom-radio input[type="radio"]:checked + .admin-cashin-amount {
+	border: 1px solid #02b4c2;
+	transform: scale(1.2);
+	color: rgba(0, 0, 0, 1);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+    opacity: 1;
+	transition: all .3s ease;
+}
+
+.admin-cashin-input .swiper-navBtn {
+	font-size: 10px;
+	font-weight: 800;
+	transform: scale(.5);
+}
+
+.admin-cashin-input .swiper-navBtn:hover {
+	transform: scale(.4);
+	transition: all .3s ease;
+}
+
+.confirm-virtual-cashin-form {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.confirm-virtual-cashin-form.active {
+	top: 55%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.confirm-virtual-cashin-form h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.confirm-admin-input {
+	width: 220px;
+}
+
+.confirm-admin-input .inputBox {
+	position: relative;
+	display: flex;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 100%;
+    margin: 25px 0;
+}
+
+.confirm-admin-input .inputBox input {
+	position: relative;
+	left: 10%;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 25px;
+	font-size: 12px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.4);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.confirm-admin-input .inputBox input::placeholder {
+	color: rgba(0, 0, 0, .50);
+}
+
+.confirm-admin-input .inputBox i {
+	position: absolute;
+	left: -13%;
+	width: 35px;
+	height: 35px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.90);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+}
+
+.virtual-cashin-button  {
+	position: absolute;
+	left: 5%;
+	bottom: 5%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10%;
+	transition: all .3s ease;
+}
+
+.virtual-cashin-button .close {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-button .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-button .cancel {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-button .cancel:hover {
+	color: #f79988;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-button  .confirm {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-button .confirm:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.error-message {
+	position: absolute;
+	left: 12.5%;
+	width: 100%;
+	bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.error-message p {
+	position: absolute;
+	top: 5px;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.error-message i { 
+	position: absolute;
+	top: -2.5px;
+	left: -10px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.error-message .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.error-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.empty-error-message {
+	position: absolute;
+	left: 55%;
+	bottom: 20%;
+	width: 300px;
+	transform: translate(-50%, -50%) scale(90%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.empty-error-message p {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.empty-error-message i { 
+	position: absolute;
+	top: 2.5px;
+	left: -15px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.empty-error-message .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.empty-error-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.virtual-cashin-buttons {
+	position: absolute;
+	left: 0;
+	bottom: 4%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30%;
+	transition: all .3s ease;
+}
+
+.virtual-cashin-buttons .close {
+	width: 25%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-buttons .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-buttons .create {
+	width: 25%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.virtual-cashin-buttons .create:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.cashin-card.active {
+	top: 55%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.cashin-card h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.cashin-card-input {
+	position: absolute;
+	top: -5%;
+	left: 5%;
+	width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.cashin-card-input .info1 {
+	position: absolute;
+	top: 22%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 30px;
+	width: 100%;
+}
+
+.cashin-card-input .info1 label {
+	position: absolute;
+	left: 0;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cashin-card-input .info {
+	position: relative;
+	top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 100%;
+    margin: 10px 0;
+}
+
+.cashin-card-input .info label {
+	position: absolute;
+	left: 0;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cashin-card-input .info input {
+	position: relative;
+	left: 30%;
+	width: 80%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 10px;
+	font-size: 10px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	box-sizing: border-box;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.cashin-card-input .info .file {
+	padding-top: 10px;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	pointer-events: auto;
+}
+
+.cashin-card-input .info .label {
+	position: absolute;
+	top: -20px;
+	left: 40%;
+	font-size: 9px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.cashin-card-input .receipt-error-message {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 180%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cashin-card-input .receipt-error-message p {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.cashin-card-input .receipt-error-message i { 
+	position: absolute;
+	top: 8px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.cashin-card-input .receipt-error-message .bxs-error-circle { 
+	font-size: 16px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashin-card-input .receipt-error-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashin-card-input .receipt {
+	position: absolute;
+	bottom: 40px;
+	right: 40%;
+	height: 50px;
+	width: 50px;
+	font-size: 9px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	background: none;
+	background-size: cover;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.cashin-card-input .receipt img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.cashin-card-button {
+	position: absolute;
+	left: 5%;
+	bottom: 3%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10%;
+	transition: all .3s ease;
+}
+
+.cashin-card-button .close {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button .reject {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button .reject:hover {
+	color: #f79988;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button .approve {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button .approve:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button2 {
+	position: absolute;
+	left: 5%;
+	bottom: 3%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30%;
+	transition: all .3s ease;
+}
+
+.cashin-card-button2 .close {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button2 .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button2 .cashin {
+	padding: 5px 20px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashin-card-button2 .cashin:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.overlaycashinbg {
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+    width: 101%;
+    height: 101%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1500;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+	border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.overlaycashinbg.active {
+    opacity: 1;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(1px);
+}
+
+.cashin-card-receipt {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(95%);
+	width: 350px;
+    height: 490px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #edebeb;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	background-size: cover;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 2000;
+	transition: all .3s ease;
+}
+
+.cashin-card-receipt.active {
+	transform: translate(-50%, -50%) scale(100%);
+	visibility: visible;
+	opacity: 1;
+	transition: all .3s ease;
+}
+
+.cashin-card-receipt .cashin-card-receipt-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.cashin-card-receipt-title i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+	color: #fc92a8;
+	cursor: pointer;
+    transform: rotate(180deg) scale(100%);
+	transition: all .5s ease;
+}
+
+.cashin-card-receipt-title i:hover {
+	color: #f26683;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+	transform: rotate(180deg) scale(90%);
+}
+
+.cashin-card-receipt img {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 4px solid #02b4c2;
+    max-width: 90%;
+    max-height: 80%;
+	transform: scale(90%);
+}
+
+.cashout-card {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	width: 360px;
+	height: 500px;
+	transform: translate(-50%, -50%) scale(100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #f5f5f5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+    transition: all .3s ease;
+}
+
+.cashout-card.active {
+	top: 55%;
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease;
+}
+
+.cashout-card h2 {
+	position: absolute;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	color: rgba(255, 255, 255, .90);
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.cashout-card-input {
+	position: absolute;
+	top: -5%;
+	left: 5%;
+	width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.cashout-card-input .info1 {
+	position: absolute;
+	top: 22%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 30px;
+	width: 100%;
+}
+
+.cashout-card-input .info1 label {
+	position: absolute;
+	left: 0;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cashout-card-input .info {
+	position: relative;
+	top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin-bottom: 10px;
+	height: 35px;
+	width: 100%;
+    margin: 10px 0;
+}
+
+.cashout-card-input .info label {
+	position: absolute;
+	left: 0;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cashout-card-input .info input {
+	position: relative;
+	left: 30%;
+	width: 80%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	padding: 0 10px;
+	font-size: 10px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	box-sizing: border-box;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	user-select: none;
+	pointer-events: none;
+}
+
+.cashout-card-input .info .file {
+	padding-top: 10px;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	pointer-events: auto;
+}
+
+.cashout-card-input .info .label {
+	position: absolute;
+	top: -20px;
+	left: 40%;
+	font-size: 9px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.cashout-card-input .receipt-error-message {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 180%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cashout-card-input .receipt-error-message p {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.cashout-card-input .receipt-error-message i { 
+	position: absolute;
+	top: 8px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.cashout-card-input .receipt-error-message .bxs-error-circle { 
+	font-size: 16px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-card-input .receipt-error-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-card-input .receipt {
+	position: absolute;
+	bottom: 40px;
+	right: 40%;
+	height: 50px;
+	width: 50px;
+	font-size: 9px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	background: none;
+	background-size: cover;
+	box-shadow: -4px -4px 8px rgba(255,255,255,1),
+	inset 4px 4px 8px rgba(0,0,0,0.10),
+	inset -4px -4px 8px rgba(255,255,255,1),
+	4px 4px 8px rgba(0,0,0,0.10);
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.cashout-card-input .receipt img {
+    max-width: 180%;
+    max-height: 180%;
+}
+
+.receipt-empty-message {
+	position: absolute;
+	width: 100%;
+	left: 9%;
+	bottom: 14%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(90%);
+}
+
+.receipt-empty-message p {
+	position: absolute;
+	left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.receipt-empty-message i { 
+	position: absolute;
+	top: -2.5px;
+	left: -10px;
+    font-size: 20px;
+	box-shadow: none;
+}
+
+.receipt-empty-message .bxs-error-circle { 
+	font-size: 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.receipt-empty-message .red {
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cashout-card-button {
+	position: absolute;
+	left: 5%;
+	bottom: 3%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10%;
+	transition: all .3s ease;
+}
+
+.cashout-card-button .close {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button .reject {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button .reject:hover {
+	color: #f79988;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button .approve {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button .approve:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button2 {
+	position: absolute;
+	left: 5%;
+	bottom: 3%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30%;
+	transition: all .3s ease;
+}
+
+.cashout-card-button2 .close {
+	padding: 6px 20px;
+	background: linear-gradient(to right, #fc7474, #d17562);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button2 .close:hover {
+	color: #f79999;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button2 .cashout {
+	padding: 5px 20px;
+	background: linear-gradient(to right, #5ef75e, #3a943a);
+    color: #fff;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25),
+		inset 2px 2px 3px rgba(255,255,255,0.25),
+		inset -2px -2px 3px rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.cashout-card-button2 .cashout:hover {
+	color: #71f571;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25),
+	inset 2px 2px 3px rgba(255,255,255,0.25),
+	inset -3px -3px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	transition: all .3s ease;
+}
+
+.overlaycashoutbg {
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(100%);
+    width: 101%;
+    height: 101%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1500;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(0);
+	border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.overlaycashoutbg.active {
+    opacity: 1;
+	pointer-events: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(1px);
+}
+
+.cashout-card-receipt {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(95%);
+	width: 350px;
+    height: 490px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #edebeb;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+	background-size: cover;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 2000;
+	transition: all .3s ease;
+}
+
+.cashout-card-receipt.active {
+	transform: translate(-50%, -50%) scale(100%);
+	visibility: visible;
+	opacity: 1;
+	transition: all .3s ease;
+}
+
+.cashout-card-receipt .cashout-card-receipt-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 10px 0px 0px;
+	color: rgba(255, 255, 255, .95);
+	background: linear-gradient(to right, #0ef, #02b4c2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.80);
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.25),
+	inset 1px 1px 2px rgba(255,255,255,0.25),
+	inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.cashout-card-receipt-title i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+	color: #fc92a8;
+	cursor: pointer;
+    transform: rotate(180deg) scale(100%);
+	transition: all .5s ease;
+}
+
+.cashout-card-receipt-title i:hover {
+	color: #f26683;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+	transform: rotate(180deg) scale(90%);
+}
+
+.cashout-card-receipt img {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border: 4px solid #02b4c2;
+    max-width: 90%;
+    max-height: 80%;
+	transform: scale(90%);
+}
+
+.account-wallet-error {
+	position: absolute;
+	left: 0;
+	bottom: 30px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	z-index: 3000;
+}
+
+.account-wallet-error p {
+    position: relative;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.account-wallet-error i {
+    position: relative;
+    font-size: 20px;
+}
+
+.account-wallet-error .bxs-check-circle { 
+	font-size: 22px;
+	background: linear-gradient(to right, #219aa3, #015f66);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.account-wallet-error .blue {
+	background: linear-gradient(to right, #4dc1fa, #02adba);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.account-wallet-error .bxs-error-circle { 
+	font-size: 22px;
+	background: linear-gradient(to right, #fc5353, #b35f5f);
+	-webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.account-wallet-error .red {
+	background: linear-gradient(to right, #fc5353, #bf3f3f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+	.admin-account-wallet-buttons {
+		left: 5%;
+		width: 90%;
+		transform: scale(80%);
+		font-size: 9px;
+	}
+	
+	.virtual-setup-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-virtual-money-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-virtual-cashin-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.admin-virtual-cashout-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.virtual-cashin-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.confirm-virtual-cashin-form {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.cashin-card {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.cashout-card {
+		transform: translate(-50%, -50%) scale(80%);
+	}
+	
+	.account-wallet-error {
+		left: -2%;
+		transform: scale(80%);
+	}
+	
+	.account-wallet-error p {
+		font-size: 10px;
+	}
+	
+}
